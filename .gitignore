@@ -1,0 +1,19 @@
+.venv/
+db.sqlite3
+sunflower.py
+test.txt
+scripts
+media
+__pycache__/
+apps/admin_app/management/
+# Ignore any other files you may have added by mistake
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore all migration files
+*/migrations/*.py
+
+# But not the __init__.py files inside the migration directories
+!*/migrations/__init__.py
