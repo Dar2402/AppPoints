@@ -14,6 +14,12 @@ from pathlib import Path
 from datetime import timedelta
 import os
 import dj_database_url
+from dotenv import load_dotenv
+load_dotenv()
+
+database_url = os.getenv('DATABASE_URL')
+secret_key = os.getenv('SECRET_KEY')
+debug = os.getenv('DEBUG') == 'True'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +29,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-!g01b83ox(z^lk*$&o@tr71axuwwh+i7t7p(^n43*o0z42kcpw"
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = debug
 
 ALLOWED_HOSTS = ['*']
 
@@ -158,7 +164,7 @@ SWAGGER_SETTINGS = {
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://root:GUrR9Q2JMfuV9vcYVYxIWiEgcNFV7Iir@dpg-cr9d6l8gph6c73cthp70-a.oregon-postgres.render.com/app_points_db_ya1g"
+        default=database_url
     )
 }
 

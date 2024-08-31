@@ -17,3 +17,5 @@ __pycache__/
 
 # But not the __init__.py files inside the migration directories
 !*/migrations/__init__.py
+
+.env
